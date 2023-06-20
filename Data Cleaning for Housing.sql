@@ -27,7 +27,7 @@ WHERE a.PropertyAddress IS NULL;
 -- Break out Address into Individual Column(Address, City, State)
 
 SELECT 
-	SUBSTRING_INDEX(PropertyAddress, ',', 1) AS Address1,
+    SUBSTRING_INDEX(PropertyAddress, ',', 1) AS Address1,
     SUBSTRING_INDEX(PropertyAddress, ',', -1) AS Address2
 FROM PortfolioProject.Housing;
 
@@ -35,7 +35,7 @@ SELECT OwnerAddress
 FROM PortfolioProject.Housing;
 
 SELECT 
-	SUBSTRING_INDEX(OwnerAddress, ',', 1) AS Address3,
+    SUBSTRING_INDEX(OwnerAddress, ',', 1) AS Address3,
     SUBSTRING_INDEX(SUBSTRING_INDEX(OwnerAddress, ',', 2), ',', -1) AS Address4,
     SUBSTRING_INDEX(OwnerAddress, ',', -1) AS Address5
 FROM PortfolioProject.Housing;
@@ -61,6 +61,7 @@ SET SoldAsVacant = CASE WHEN SoldAsVacant = 'Y' THEN 'Yes'
 
 -- Remove Duplicates
 -- CTEs are used to simplify complex queries, or perform recursive operations that require self-reference within a query
+-- Window function
 
 WITH RowNumCTE AS(
 SELECT *, 
