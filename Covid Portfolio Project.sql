@@ -71,7 +71,7 @@ GROUP BY continent
 ORDER BY DeathPercentage DESC;
 
 -- Looking at total population VS vaccinations
--- Use CTE
+-- Use CTE & Window function
 
 WITH PopvsVac (continent, location, date, population_density, new_vaccinations, RollingPeopleVaccinated)
 AS(
